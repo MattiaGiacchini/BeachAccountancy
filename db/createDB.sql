@@ -9,6 +9,7 @@ USE BeachService;
 CREATE TABLE BEACHSERVICE (
     idBS int not null auto_increment,
     numBS int not null,
+    a tinyint(1),
     name varchar(150) not null,
     room int,
     umbrellas int not null,
