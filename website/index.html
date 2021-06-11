@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="utf-8">
+        <title>BeachService</title>
+
+        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
+
+        <script type="text/javascript" src="../js/datePicker.js"></script>
+        
+    </head>
+    <body>
+        <header>
+            <a href="index.html"><h1>BeachService</h1></a>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="report.html">Report</a></li>
+                <li><a href="periods.html">Tariffe</a></li>
+            </ul>
+        </nav>
+        <main>
+            <form class="addBs" action="index.html" method="post">
+                <label for="numBS">Numero BS</label>
+                <input type="number" id="numBS" name="Numero BS" required autofocus min="0" step="1" placeholder="Numero BS"/>
+            
+                <label for="bsA">A</label>
+                <input type="checkbox" id="bsA" name="A" />
+                
+                <label for="clientName">Nome Ospite</label>
+                <input type="text" id="clientName" name="Nome Ospite" value="" required placeholder="Nome Ospite">
+            
+                <label for="room">Stanza</label>
+                <input type="number" id="room" name="stanza" min="0" step="1" placeholder="Stanza"/>
+            
+                <label for="umbrellas">Ombrelloni</label>
+                <input type="number" id="umbrellas" name="Ombrelloni" required min="0" step="1" placeholder="Ombrelloni"/>
+            
+                <label for="beds">Lettini</label>
+                <input type="number" id="beds" name="Lettini" required min="0" step="1" placeholder="Lettini"/>
+            
+                <label hidden for="checkin">Check-in</label>
+                <input type="date" class="form-control form-control-sm" id="checkin" name="Check-in" value="" required hidden />
+                
+                <label hidden for="checkout">Check-out</label>
+                <input type="date" class="form-control form-control-sm" id="checkout" name="Check-out" value="" required hidden />
+                
+                <label for="numDays">Tot. Giorni</label>
+                <input type="number" id="numDays" name="days" value="" readonly/>
+                
+                <input id="confirmBs" type="submit" name="submit" value="Inserisci" />
+            </form>
+        </main>
+    </body>
+</html>
