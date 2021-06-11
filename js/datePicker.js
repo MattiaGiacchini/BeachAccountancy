@@ -1,0 +1,19 @@
+$(document).ready(function() {
+    const picker = new Litepicker({
+        element: document.getElementById('checkin'),
+        elementEnd: document.getElementById('checkout'),
+        singleMode: false,
+        numberOfColumns: 2,
+        numberOfMonths: 4,
+        allowRepick: true,
+        inlineMode: true,
+        selectForward: true,
+        switchingMonths: 1,
+        tooltipNumber: (totalDays) => {
+            if (document.getElementById('numDays')) {
+                document.getElementById('numDays').value = totalDays;
+            }
+            return totalDays;
+        }
+    });
+});
