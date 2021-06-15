@@ -9,8 +9,8 @@ html, button {
 }
 
 
-body { 
-    padding-top: 90px; 
+body {
+    padding-top: 90px;
 }
 
 #confirmBsDiv, #confirmPeriodDiv {
@@ -22,6 +22,15 @@ body {
     margin-right: 1%;
 }
 
+#mainRow {
+    margin: 1%;
+}
+
+@media print{
+    .hidden-print {
+        display: none;
+    }
+}
 
 
 
@@ -31,15 +40,15 @@ body {
 
 
 /*!
- * 
+ *
  * ../css/litepicker.css
  * Litepicker v2.0.11 (https://github.com/wakirin/Litepicker)
  * Package: litepicker (https://www.npmjs.com/package/litepicker)
  * License: MIT (https://github.com/wakirin/Litepicker/blob/master/LICENCE.md)
  * Copyright 2019-2021 Rinat G.
- *     
+ *
  * Hash: 49b676d3f7d974dda50e
- * 
+ *
  */
 
 :root {

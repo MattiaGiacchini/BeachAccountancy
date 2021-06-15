@@ -7,17 +7,17 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="../css/main.css">
-        
+
         <link href="../icon/css/all.css" rel="stylesheet"> <!--load all styles -->
-        
+
         <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
 
-        
-        
-        
+
+
+
         <title>BeachService</title>
-        
+
     </head>
     <body>
         <header>
@@ -28,7 +28,7 @@
                     <img src="../img/logoMartini.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
                     BeachService
                 </a>
-                
+
                     <ul class="navbar-nav">
                         <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
                         <li class="nav-item"><a class="nav-link active" href="report.html">Report</a></li>
@@ -37,19 +37,18 @@
             </div>
         </nav>
         <main>
-            <div class="container"> 
-                <div class="row">
+                <div class="row" id="mainRow">
                     <div class="col-8">
-                                        
-                    
+
+
                         <form class="row g-3 card-block bg-faded" action="index.html" id="formBS" method="post">
-                        
+
                             <div class="col-4">
                                 <div class="form-floating">
                                     <input class="form-control" type="number" id="numBS" name="Numero BS" required autofocus min="0" step="1" placeholder="Numero BS"/>
                                     <label for="numBS">Numero BS</label>
                                 </div>
-                            </div>    
+                            </div>
                             <div class="col-2 offset-md-1">
                                 <div class="form-control-lg">
                                     <input class="btn-check btn-lg" type="checkbox" id="bsA" name="A" tabindex="-1" />
@@ -59,55 +58,97 @@
 
                             <div class="col-8">
                                 <div class="form-floating">
-                                    <input class="form-control" type="text" id="clientName" name="Nome Ospite" value="" required placeholder="Nome Ospite">                                
+                                    <input class="form-control" type="text" id="clientName" name="Nome Ospite" value="" required placeholder="Nome Ospite">
                                     <label for="clientName">Nome Ospite</label>
                                 </div>
-                            </div>    
-                            
+                            </div>
+
                             <div class="col-4">
                                 <div class="form-floating">
                                     <input class="form-control" type="number" id="room" name="stanza" min="0" step="1" placeholder="Stanza" tabindex="-1" />
                                     <label for="room">Stanza</label>
                                 </div>
                             </div>
-                        
+
                             <div class="col-4">
                                 <div class="form-floating">
-                                    <input class="form-control" type="number" id="umbrellas" name="Ombrelloni" required min="0" step="1" placeholder="Ombrelloni"/>                            
+                                    <input class="form-control" type="number" id="umbrellas" name="Ombrelloni" required min="0" step="1" placeholder="Ombrelloni"/>
                                     <label for="umbrellas">Ombrelloni</label>
                                 </div>
-                            </div>    
-                            
+                            </div>
+
                             <div class="col-4">
                                 <div class="form-floating">
                                     <input class="form-control" type="number" id="beds" name="Lettini" required min="0" step="1" placeholder="Lettini"/>
                                     <label for="beds">Lettini</label>
                                 </div>
                             </div>
-                            
+
                             <div class="col-4">
                                 <div class="form-floating">
                                     <input class="form-control" type="number" id="numDays" name="days" value="0" readonly tabindex="-1" />
                                     <label class="form group has-float-label" for="numDays">Tot. Giorni</label>
                                 </div>
                             </div>
-                            
+
                             <input type="date" class="form-control form-control-sm" id="checkin" name="Check-in" value="" required hidden />
-                            
+
                             <input type="date" class="form-control form-control-sm" id="checkout" name="Check-out" value="" required hidden />
-                            
+
                             <script type="text/javascript" src="../js/datePicker.js"></script>
 
-                            
+
                             <div class="col-2" id="confirmBsDiv">
                                 <input class="btn btn-primary btn-lg" id="confirmBs" type="submit" name="submit" value="Inserisci" />
                             </div>
 
                         </form>
                     </div>
-                    
+                    <div class="col-4">
+                        <table class="table table-striped align-middle text-center" data-show-print="true">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Nome</th>
+                                    <th scope="col">Check-in</th>
+                                    <th scope="col">Check-out</th>
+                                    <th scope="col">Giorni</th>
+                                    <th scope="col">Ombr.</th>
+                                    <th scope="col">Lett.</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Giacchini Mattia</td>
+                                    <td>25/06</td>
+                                    <td>31/06</td>
+                                    <td>6</td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Giacchini Mattia</td>
+                                    <td>25/06</td>
+                                    <td>31/06</td>
+                                    <td>6</td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>Giacchini Mattia</td>
+                                    <td>25/06</td>
+                                    <td>31/06</td>
+                                    <td>6</td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
         </main>
     </body>
 </html>
