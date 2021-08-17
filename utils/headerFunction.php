@@ -1,6 +1,6 @@
 <?php
     session_start();
-    define("UPLOAD_DIR", "./upload/");
+    define("UPLOAD_DIR", "./img/");
     define("AES_KEY", "02742984712323223132132135291233");
     require_once("db/db.php");
     $dataBase = new Database("localhost", "root", "", "beachservice", 3306);

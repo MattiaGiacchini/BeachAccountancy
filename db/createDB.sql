@@ -14,8 +14,8 @@ CREATE TABLE BEACHSERVICE (
     room int,
     umbrellas int not null,
     beds int not null,
-    `check-in` date not null,
-    `check-out` date not null,
+    `checkin` date not null,
+    `checkout` date not null,
     constraint ID primary key (idBS)
 );
 
@@ -23,8 +23,8 @@ CREATE TABLE BEACHSERVICE (
 CREATE TABLE PERIOD (
     idPeriod int not null auto_increment,
     name varchar(50),
-    `date-in` date not null,
-    `date-out` date not null,
+    `datein` date not null,
+    `dateout` date not null,
     price decimal(8,2),
     constraint ID primary key (idPeriod)
 );
