@@ -10,7 +10,7 @@ html, button {
 
 
 body {
-    padding-top: 90px;
+    padding-top: 60px;
 }
 
 #confirmBsDiv, #confirmPeriodDiv {
@@ -30,13 +30,24 @@ body {
     .hidden-print {
         display: none;
     }
+
+
+    table {page-break-after:auto }
+    tr    { page-break-inside:avoid; page-break-after:auto }
+    td    { page-break-inside:avoid; page-break-after:auto }
+    thead { display:table-header-group }
+    tfoot { display:table-footer-group }
+
 }
 
 #navLogo {
     margin-right: 5%;
 }
 
-
+#boundForm {
+    padding-top: -20px;
+    padding-bottom: 20px;
+}
 
 
 

@@ -11,6 +11,7 @@
         <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
 
         <script src="./js/editBS.js"></script>
+        <script src="./js/reportDates.js"></script>
 
         <link rel="stylesheet" href="./css/main.css">
 

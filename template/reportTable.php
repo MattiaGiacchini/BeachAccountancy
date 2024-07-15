@@ -1,5 +1,32 @@
 <div class="row" id="mainRow">
     <div class="col-12">
+        <form class="hidden-print row g-4 card-block bg-faded" action="report.php" method="get" id="boundForm">
+            <div class="col-auto">
+                <div class="form-floating">
+                    <input type="date" class="form-control" name="lowerBound" id="reportLowerBound" value="">
+                    <label for="reportLowerBound">Lower Bound</label>
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="form-floating">
+                    <input type="date" class="form-control" name="upperBound" id="reportUpperBound" value="">
+                    <label for="reportUpperBound">Upper Bound</label>
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="form-control-lg">
+                    <input class="btn-check" type="checkbox" id="reportA" name="reportA" tabindex="-1" />
+                    <label class="btn btn-outline-secondary" for="reportA">A</label>
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="form-control-lg">
+                    <button type="submit" class="btn btn-primary mb-3">Filter</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-12">
 
         <table id="reportTable" class="table align-middle text-center table-hover" data-show-print="true">
             <thead>
@@ -70,9 +97,20 @@
                             <?php endforeach; ?>
                     </tr>
                 <?php endforeach; ?>
+                <?php $iva = 22 ?>
+                <?php $total = $templateParams["totalPrice"] ?>
+                <?php $totalNoIVA = $total / (1 + $iva / 100) ?>
                 <tr class="table-info fw-bold fs-2">
-                    <td colspan="9" class="text-end">Totale complessivo</td>
-                    <td colspan="3"><?php echo "€ " . number_format((float)$templateParams["totalPrice"], 2, ',', '.')?></td>
+                    <td colspan="8" class="text-end">Totale complessivo</td>
+                    <td colspan="4"><?php echo "€ " . number_format((float)$templateParams["totalPrice"], 2, ',', '.')?></td>
+                </tr>
+                <tr class="table-info fw-bold fs-2">
+                    <td colspan="8" class="text-end">IVA</td>
+                    <td colspan="4"><?php echo "€ " . number_format((float) $total - $totalNoIVA, 2, ',', '.') ?></td>
+                </tr>
+                <tr class="table-info fw-bold fs-2">
+                    <td colspan="8" class="text-end">Imponibile</td>
+                    <td colspan="4"><?php echo "€ " . number_format((float) $totalNoIVA, 2, ',', '.')?></td>
                 </tr>
             </tbody>
         </table>

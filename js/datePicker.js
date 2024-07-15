@@ -6,9 +6,12 @@ $(document).ready(function() {
         numberOfColumns: 3,
         numberOfMonths: 3,
         allowRepick: true,
+
         inlineMode: true,
         selectForward: true,
         switchingMonths: 1,
+
+
         tooltipNumber: (totalDays) => {
             if (document.getElementById('numDays')) {
                 document.getElementById('numDays').value = totalDays;

@@ -196,19 +196,17 @@
             return $result->fetch_all(MYSQLI_ASSOC);
         }
 
-        public function getAllBS($year) {
+        public function getAllBS($lowerBound, $upperBound, $a) {
             $query = "  SELECT bs.idBS, bs.numBS, bs.name, bs.umbrellas, bs.beds, bs.checkin as checkin, bs.checkout as checkout, sum(p.price * r.days * (r.varUmbrellas + r.varBeds)) as totBS, count(*) numLines, r.varUmbrellas, r.varBeds
                         FROM beachservice bs LEFT JOIN rentinperiod r ON bs.idBS = r.bs
                         LEFT JOIN period p ON r.period = p.idPeriod
-                        WHERE bs.a = 0
-                        AND (year(bs.checkin) = ? OR year(bs.checkout) = ?)
+                        WHERE bs.a = ?
+                        AND (bs.checkout >= ? and bs.checkout <= ?)
                         GROUP BY bs.idBS, bs.numBS, bs.name, bs.umbrellas, bs.beds, bs.checkin, bs.checkout
                         ORDER BY bs.numBS";
 
-            $currentYear = date("Y");
-
             $stmt = $this->db->prepare($query);
-            $stmt->bind_param('ii', $currentYear, $currentYear);
+            $stmt->bind_param('iss', $a, $lowerBound, $upperBound);
             $stmt->execute();
             $result = $stmt->get_result();
 
@@ -298,17 +296,18 @@
             return;
         }
 
-        public function getTotalPrice($year) {
+        public function getTotalPrice($lowerBound, $upperBound, $a) {
+
             $query = "  SELECT sum(singleBS.totBS) as totalPrice
                         FROM (SELECT sum(p.price * r.days * (r.varUmbrellas + r.varBeds)) as totBS
                             FROM beachservice bs LEFT JOIN rentinperiod r ON bs.idBS = r.bs
                             LEFT JOIN period p ON r.period = p.idPeriod
-                            WHERE bs.a = 0
-                            AND (year(bs.checkin) = ? OR year(bs.checkout) = ?)
+                            WHERE bs.a = ?
+                            AND (bs.checkout >= ? and bs.checkout <= ?)
                             GROUP BY bs.idBS) as singleBS";
 
             $stmt = $this->db->prepare($query);
-            $stmt->bind_param('ss', $year, $year);
+            $stmt->bind_param('iss', $a, $lowerBound, $upperBound);
             $stmt->execute();
             $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 
